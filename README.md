@@ -1,4 +1,4 @@
-# generator-ng-template [![Build Status](https://secure.travis-ci.org/gglukmann/generator-ng-template.png?branch=master)](https://travis-ci.org/gglukmann/generator-ng-template)
+# generator-ng-webapp [![Build Status](https://secure.travis-ci.org/gglukmann/generator-ng-webapp.png?branch=master)](https://travis-ci.org/gglukmann/generator-ng-webapp)
 
 > [Yeoman](http://yeoman.io) generator
 
@@ -23,16 +23,16 @@ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-ng-template from npm, run:
+To install generator-ng-webapp from npm, run:
 
 ```bash
-npm install -g generator-ng-template
+npm install -g generator-ng-webapp
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo ng-template
+yo ng-webapp
 ```
 
 ### Getting To Know Yeoman
