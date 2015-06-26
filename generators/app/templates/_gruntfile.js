@@ -141,10 +141,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('dbushell-grunt-mustatic');
 
     grunt.registerTask('default', ['init']);
-    grunt.registerTask('init', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'mustatic', 'connect', 'watch']);
-    grunt.registerTask('serve', ['connect', 'watch']);
+    grunt.registerTask('scss', ['sass:dev', 'sakugawa', 'sass:dist']);
     grunt.registerTask('js', ['concat', 'uglify']);
-    grunt.registerTask('sass', ['sass:dev', 'sakugawa', 'sass:dist']);
-    grunt.registerTask('update', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'mustatic']);
+    grunt.registerTask('serve', ['connect', 'watch']);
+    grunt.registerTask('init', ['copy', 'scss', 'js', 'mustatic', 'serve']);
+    grunt.registerTask('update', ['copy', 'scss', 'js', 'mustatic']);
 
 };
