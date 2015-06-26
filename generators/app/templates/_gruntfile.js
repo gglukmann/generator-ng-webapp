@@ -15,18 +15,27 @@ module.exports = function(grunt) {
 
         // compiles sass to minified css
         sass: {
+            dev: {
+                options: {
+                    style: 'expanded'
+                },
+                files: {
+                    'app/assets/css/app.css': 'assets/sass/app.scss'
+                }
+            },
             dist: {
                 options: {
                     style: 'compressed'
                 },
                 files: {
-                    'app/assets/css/app.min.css': 'assets/sass/app.scss'
+                    'app/assets/css/app.min_1.css': 'app/assets/css/app_1.css',
+                    'app/assets/css/app.min_2.css': 'app/assets/css/app_2.css'
                 }
             }
         },
 
         // concatenates js files to single file
-        concat: {   
+        concat: {
             dist: {
                 src: [
                     'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js',
@@ -60,14 +69,19 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['assets/sass/*.scss'],
-                tasks: ['sass:dist']
+                tasks: ['sass:dev', 'sakugawa', 'sass:dist']
             },
             concat: {
                 files: ['assets/js/*.js'],
                 tasks: ['concat:dist', 'uglify:dist']
+            },
+            includereplacemore: {
+                files: ['*.html'],
+                tasks: ['includereplacemore']
             }
         },
 
+        // separates media queries to a different file
         sakugawa: {
             pure: {
                 options: {
@@ -75,12 +89,20 @@ module.exports = function(grunt) {
                     mediaQueries: 'separate',
                     suffix: '_'
                 },
-                src: ['app/assets/css/app.min.css']
+                src: ['app/assets/css/app.css']
             }
         },
 
+        // includes html files
+        includereplacemore: {
+            dist: {
+                src: '*.html',
+                dest: 'app/'
+            }
+        }
+
     });
- 
+
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -88,10 +110,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-sakugawa');
- 
+    grunt.loadNpmTasks('grunt-include-replace-more');
+
     grunt.registerTask('serve', ['connect']);
     grunt.registerTask('js', ['concat', 'uglify']);
-    grunt.registerTask('init', ['copy', 'sass', 'concat', 'uglify']);
-    grunt.registerTask('update', ['copy', 'sass', 'concat', 'uglify']);
+    grunt.registerTask('init', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'includereplacemore']);
+    grunt.registerTask('update', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'includereplacemore']);
     grunt.registerTask('default', ['init']);
 };

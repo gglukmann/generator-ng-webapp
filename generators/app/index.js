@@ -22,7 +22,7 @@ module.exports = yeoman.generators.Base.extend({
         },{
             type    : 'input',
             name    : 'urlEnd',
-            message : 'http://ux.netgroupdigital.com/...',
+            message : 'Write URL ending http://ux.netgroupdigital.com/...',
             default : this.appname // Default to current folder name
         }];
 
@@ -38,8 +38,6 @@ module.exports = yeoman.generators.Base.extend({
 
     writing: {
         app: function () {
-            this.template('index.html', 'app/index.html', { title: this.appName });
-
             this.copy('custom.css', 'app/assets/css/custom.css');
             this.copy('custom.js', 'app/assets/js/custom.js');
 
@@ -55,6 +53,7 @@ module.exports = yeoman.generators.Base.extend({
 
         projectfiles: function () {
             this.template('index.html', 'index.html', { title: this.appName });
+            this.template('includes/header.html', 'includes/header.html', { title: this.appName });
 
             this.copy('.gitignore', '.gitignore');
             this.copy('editorconfig', '.editorconfig');

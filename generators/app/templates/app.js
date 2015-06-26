@@ -43,3 +43,7 @@
         document.querySelector('head').appendChild(msViewportStyle)
     }
 })();
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
