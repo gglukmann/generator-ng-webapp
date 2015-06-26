@@ -52,8 +52,9 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         projectfiles: function () {
-            this.template('index.html', 'index.html', { title: this.appName });
-            this.template('includes/header.html', 'includes/header.html', { title: this.appName });
+            this.template('includes/base.html', 'includes/base.html', { title: this.appName });
+            this.copy('includes/pages/index.html', 'includes/pages/index.html');
+            this.template('includes/partials/_header.html', 'includes/partials/_header.html', { title: this.appName });
 
             this.copy('.gitignore', '.gitignore');
             this.copy('editorconfig', '.editorconfig');

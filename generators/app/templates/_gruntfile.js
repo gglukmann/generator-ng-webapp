@@ -74,10 +74,6 @@ module.exports = function(grunt) {
             concat: {
                 files: ['assets/js/*.js'],
                 tasks: ['concat:dist', 'uglify:dist']
-            },
-            includereplacemore: {
-                files: ['*.html'],
-                tasks: ['includereplacemore']
             }
         },
 
@@ -93,11 +89,16 @@ module.exports = function(grunt) {
             }
         },
 
-        // includes html files
-        includereplacemore: {
+        mustatic: {
+            options: {
+                src: 'includes',
+                dest: 'app'
+            },
             dist: {
-                src: '*.html',
-                dest: 'app/'
+                globals: {
+                    lang: 'en',
+                    charset: 'utf-8'
+                }
             }
         }
 
@@ -110,11 +111,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-sakugawa');
-    grunt.loadNpmTasks('grunt-include-replace-more');
+    grunt.loadNpmTasks('dbushell-grunt-mustatic');
 
     grunt.registerTask('serve', ['connect']);
     grunt.registerTask('js', ['concat', 'uglify']);
-    grunt.registerTask('init', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'includereplacemore']);
-    grunt.registerTask('update', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'includereplacemore']);
+    grunt.registerTask('init', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'mustatic']);
+    grunt.registerTask('update', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'mustatic']);
     grunt.registerTask('default', ['init']);
 };

@@ -10,6 +10,6 @@
         "grunt-contrib-watch": "*",
         "grunt-contrib-connect": "*",
         "grunt-sakugawa": "*",
-        "grunt-include-replace-more": "*"
+        "dbushell-grunt-mustatic": "*"
     }
 }
