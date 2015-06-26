@@ -105,7 +105,7 @@ module.exports = function(grunt) {
                 tasks: ['concat', 'uglify']
             },
             mustatic: {
-                files: ['includes/{,*/}*.html'],
+                files: ['includes/{,*/}*.html', 'includes/{,*/}*.json', 'includes/partials/{,*/}*.html', 'includes/pages/{,*/}*.html'],
                 tasks: ['mustatic']
             },
             configFiles: {

@@ -66,9 +66,9 @@ module.exports = yeoman.generators.Base.extend({
         projectfiles: function () {
             this.template('includes/base.html', 'includes/base.html', { title: this.name });
             this.copy('includes/pages/index.html', 'includes/pages/index.html');
-            this.template('includes/partials/_header.html', 'includes/partials/_header.html', { title: this.name });
+            this.template('includes/partials/_header.html', 'includes/partials/core/_header.html', { title: this.name });
 
-            this.copy('.gitignore', '.gitignore');
+            this.copy('.gitignore-example', '.gitignore');
             this.copy('editorconfig', '.editorconfig');
             this.copy('jshintrc', '.jshintrc');
             this.template('_package.json', 'package.json', { name: this.appName });
@@ -89,6 +89,8 @@ module.exports = yeoman.generators.Base.extend({
             this.template('doc/js.md', 'doc/js.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
             this.template('doc/misc.md', 'doc/misc.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
             this.template('doc/usage.md', 'doc/usage.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
+
+            this.mkdir('includes/partials/components');
         }
 
     },
