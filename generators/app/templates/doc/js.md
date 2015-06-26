@@ -1,21 +1,21 @@
-[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/) | [Documentation
+<% if (addLink) { %>[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/)<% } else { %><%= name %><% } %> | [Documentation
 table of contents](TOC.md)
 
 # The JavaScript
 
-Information about the default JavaScript included in the project. Note that we avoid mixing javascript with html - javascript has to be kept in separate file. As well we avoid mixing javascript and css classes. In general: 
+Information about the default JavaScript included in the project. Note that we avoid mixing javascript with html - javascript has to be kept in separate file. As well we avoid mixing javascript and css classes. In general:
 
 * id is for javascript, shall not be used in css. Use camelCase to make it obvious.
 * class is for css. In case you need a class in javascript, prepend it with `js-` e.g. `.js-foo`.
 * if a javascript and css class have to be used together, use prefix `is-` e.g. `.is-foo`.
 
-Read more about keeping your css neat and tidy in [Scalable and Modular Architecture for CSS](https://smacss.com/) 
+Read more about keeping your css neat and tidy in [Scalable and Modular Architecture for CSS](https://smacss.com/)
 
-## app.min.js 
+## app.min.js
 
 This file contains minified version of all javascript and needed plugins so far. We have provided an empty `custom.js` for you to get started with adding scripts if needed.
 
-In case the project is bigger and you need more structure in javascript files, please follow the contention: 
+In case the project is bigger and you need more structure in javascript files, please follow the contention:
 
 ### main.js
 

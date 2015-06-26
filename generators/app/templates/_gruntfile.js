@@ -65,18 +65,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // watches changes and compiles automatically
-        watch: {
-            sass: {
-                files: ['assets/sass/*.scss'],
-                tasks: ['sass:dev', 'sakugawa', 'sass:dist']
-            },
-            concat: {
-                files: ['assets/js/*.js'],
-                tasks: ['concat:dist', 'uglify:dist']
-            }
-        },
-
         // separates media queries to a different file
         sakugawa: {
             pure: {
@@ -89,6 +77,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // compiles html files
         mustatic: {
             options: {
                 src: 'includes',
@@ -100,6 +89,44 @@ module.exports = function(grunt) {
                     charset: 'utf-8'
                 }
             }
+        },
+
+        // watches changes and compiles automatically
+        watch: {
+            options: {
+                livereload: true,
+            },
+            sass: {
+                files: ['assets/sass/{,*/}*.scss'],
+                tasks: ['sass:dev', 'sakugawa', 'sass:dist']
+            },
+            concat: {
+                files: ['assets/js/{,*/}*.js'],
+                tasks: ['concat', 'uglify']
+            },
+            mustatic: {
+                files: ['includes/{,*/}*.html'],
+                tasks: ['mustatic']
+            }
+        },
+
+        // keeps livereload on browser
+        connect: {
+            options: {
+        		port: 9001,
+        		livereload: 35729,
+        		// Change this to '0.0.0.0' or '*' to access the server from outside
+        		hostname: 'localhost'
+        		// hostname: '0.0.0.0'
+        		// hostname: '*'
+        	},
+
+        	livereload: {
+        		options: {
+        			open: true,
+        			base: ['app']
+        		}
+        	}
         }
 
     });
@@ -113,9 +140,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sakugawa');
     grunt.loadNpmTasks('dbushell-grunt-mustatic');
 
-    grunt.registerTask('serve', ['connect']);
-    grunt.registerTask('js', ['concat', 'uglify']);
-    grunt.registerTask('init', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'mustatic']);
-    grunt.registerTask('update', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'mustatic']);
     grunt.registerTask('default', ['init']);
+    grunt.registerTask('init', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'mustatic', 'connect', 'watch']);
+    grunt.registerTask('serve', ['connect', 'watch']);
+    grunt.registerTask('js', ['concat', 'uglify']);
+    grunt.registerTask('sass', ['sass:dev', 'sakugawa', 'sass:dist']);
+    grunt.registerTask('update', ['copy', 'sass:dev', 'concat', 'uglify', 'sakugawa', 'sass:dist', 'mustatic']);
+
 };

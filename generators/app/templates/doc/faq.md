@@ -1,4 +1,4 @@
-[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/) | [Documentation table of contents](TOC.md)
+<% if (addLink) { %>[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/)<% } else { %><%= name %><% } %> | [Documentation table of contents](TOC.md)
 
 # Frequently asked questions
 

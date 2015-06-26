@@ -1,11 +1,11 @@
-[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/) | [Documentation
+<% if (addLink) { %>[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/)<% } else { %><%= name %><% } %> | [Documentation
 table of contents](TOC.md)
 
 # The HTML
 
 Compiled `html` pages are located in `build`. If you want to use our filesystem, look at the logic in root html-files and their includes.  
 
-`.kit` files are ide-specific for CodeKit - ignore them unless using Codekit. 
+`.kit` files are ide-specific for CodeKit - ignore them unless using Codekit.
 
 The minimum would be:
 * [`index.html`](#indexhtml) - a theme that should form the

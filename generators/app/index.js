@@ -20,15 +20,25 @@ module.exports = yeoman.generators.Base.extend({
             message : 'Write your project name',
             default : this.appname // Default to current folder name
         },{
+            type: 'confirm',
+            name: 'addLink',
+            message: 'Are you from Net Group?',
+            default: true
+        },{
+            when: function (response) {
+                return response.addLink;
+            },
             type    : 'input',
             name    : 'urlEnd',
             message : 'Write URL ending http://ux.netgroupdigital.com/...',
-            default : this.appname // Default to current folder name
+            default : this.appname.replace(/ /g,"")
         }];
 
         this.prompt(prompts, function (answers) {
             // this.log(answers.appName);
-            this.appName = answers.appName;
+            this.name = answers.appName;
+            this.appName = answers.appName.replace(/ /g,"");
+            this.addLink = answers.addLink;
             this.urlEnd = answers.urlEnd;
 
             done();
@@ -52,15 +62,15 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         projectfiles: function () {
-            this.template('includes/base.html', 'includes/base.html', { title: this.appName });
+            this.template('includes/base.html', 'includes/base.html', { title: this.name });
             this.copy('includes/pages/index.html', 'includes/pages/index.html');
-            this.template('includes/partials/_header.html', 'includes/partials/_header.html', { title: this.appName });
+            this.template('includes/partials/_header.html', 'includes/partials/_header.html', { title: this.name });
 
             this.copy('.gitignore', '.gitignore');
             this.copy('editorconfig', '.editorconfig');
             this.copy('jshintrc', '.jshintrc');
-            this.template('_package.json', 'package.json', { name: this.urlEnd });
-            this.template('_bower.json', 'bower.json', { name: this.urlEnd });
+            this.template('_package.json', 'package.json', { name: this.appName });
+            this.template('_bower.json', 'bower.json', { name: this.appName });
             this.copy('_gruntfile.js', 'gruntfile.js');
 
             this.copy('_variables.scss', 'assets/sass/_variables.scss');
@@ -70,13 +80,13 @@ module.exports = yeoman.generators.Base.extend({
 
             this.copy('app.js', 'assets/js/app.js');
 
-            this.template('doc/TOC.md', 'doc/TOC.md', { name: this.appName, urlend: this.urlEnd });
-            this.template('doc/css.md', 'doc/css.md', { name: this.appName, urlend: this.urlEnd });
-            this.template('doc/faq.md', 'doc/faq.md', { name: this.appName, urlend: this.urlEnd });
-            this.template('doc/html.md', 'doc/html.md', { name: this.appName, urlend: this.urlEnd });
-            this.template('doc/js.md', 'doc/js.md', { name: this.appName, urlend: this.urlEnd });
-            this.template('doc/misc.md', 'doc/misc.md', { name: this.appName, urlend: this.urlEnd });
-            this.template('doc/usage.md', 'doc/usage.md', { name: this.appName, urlend: this.urlEnd });
+            this.template('doc/TOC.md', 'doc/TOC.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
+            this.template('doc/css.md', 'doc/css.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
+            this.template('doc/faq.md', 'doc/faq.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
+            this.template('doc/html.md', 'doc/html.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
+            this.template('doc/js.md', 'doc/js.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
+            this.template('doc/misc.md', 'doc/misc.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
+            this.template('doc/usage.md', 'doc/usage.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
         }
 
     },
@@ -86,6 +96,6 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        this.log(chalk.green('Much wow! Everything installed successfully'));
+        this.log(chalk.green('Much wow! Everything installed successfully! Next run "grunt init" to get you started.'));
     }
 });

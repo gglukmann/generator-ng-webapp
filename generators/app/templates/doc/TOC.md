@@ -1,4 +1,4 @@
-[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/)
+<% if (addLink) { %>[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/)<% } else { %><%= name %><% } %>
 
 ## Getting started
 
@@ -10,4 +10,3 @@
 * [CSS](css.md) — Guide to the default CSS.
 * [JavaScript](js.md) — Guide to the default JavaScript.
 * [Everything else](misc.md).
-

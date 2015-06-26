@@ -1,4 +1,4 @@
-[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/) | [Documentation table of contents](TOC.md)
+<% if (addLink) { %>[<%= name %>](http://ux.netgroupdigital.com/<%= urlend %>/)<% } else { %><%= name %><% } %> | [Documentation table of contents](TOC.md)
 
 # Usage
 
@@ -51,7 +51,7 @@ CSS](css.md).
 
 ### doc
 
-This directory contains all the myToyota UI documentation. 
+This directory contains all the myToyota UI documentation.
 
 ### js
 
