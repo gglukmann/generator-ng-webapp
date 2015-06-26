@@ -12,6 +12,7 @@ module.exports = yeoman.generators.Base.extend({
             // Have Yeoman greet the user.
             this.log(yosay('Welcome to the kickass ' + chalk.red('Net Group UX team template') + ' generator!'));
             this.log(chalk.green('Out of the box you get jQuery, Bootstrap SASS, Modernizr, FontAwesome and a gruntfile.js to build your app.'));
+            this.log(chalk.magenta('Brought to you by Gert Glükmann'));
         }
 
         var prompts = [{
@@ -54,6 +55,7 @@ module.exports = yeoman.generators.Base.extend({
             this.copy('browserconfig.xml', 'app/browserconfig.xml');
             this.copy('crossdomain.xml', 'app/crossdomain.xml');
             this.copy('robots.txt', 'app/robots.txt');
+            this.copy('README.md', 'README.md');
 
             this.copy('apple-touch-icon.png', 'app/apple-touch-icon.png');
             this.copy('favicon.ico', 'app/favicon.ico');

@@ -107,6 +107,12 @@ module.exports = function(grunt) {
             mustatic: {
                 files: ['includes/{,*/}*.html'],
                 tasks: ['mustatic']
+            },
+            configFiles: {
+                files: [ 'gruntfile.js' ],
+                options: {
+                    reload: true
+                }
             }
         },
 
