@@ -2,12 +2,38 @@
 
 # Usage
 
-Once you have cloned or downloaded myToyota UI, creating a site or app
+## Getting started
+
+To get you started on Windows:
+
+- Install [Ruby](http://rubyinstaller.org/)
+- Install [NodeJS](https://nodejs.org/)
+- Open Ruby cmd and install sass with gem
+```bash
+gem install sass
+```
+- Install [git](https://git-scm.com/)
+- Make sure ruby, node and git are in your environment variables PATH
+- Close cmd and reopen it
+- Check if everything is installed correctly in Ruby cmd
+```bash
+ruby -v
+node -v
+git
+```
+- Make directory to store your project
+```bash
+mkdir /path/to/your-project-dir
+cd /path/to/your-project-dir
+```
+
+Once you have cloned or downloaded UI, creating a site or app
 usually involves the following:
 
-1. Navigate to build catalogue.
-2. Run your site locally to see how it looks.
-3. Deploy your site.
+- Run
+```bash
+grunt init
+```
 
 
 ## Basic structure
@@ -17,11 +43,11 @@ All the final files needed are located in build. The files outside build are for
 A basic myToyota UI site from build catalogue initially looks something like this:
 
 ```
-build
+app
 ├── assets
 │   └── css
-│       ├── main.css
-│       ├── main.min.css
+│       ├── app.css
+│       ├── app.min.css
 │       └── custom.css
 │   ├── fonts
 │   ├── img
@@ -29,11 +55,9 @@ build
 │       └── app.min.js
 ├── .editorconfig
 ├── bower.json
-├── 404.html
 ├── apple-touch-icon.png
 ├── browserconfig.xml
 ├── index.html
-├── humans.txt
 ├── robots.txt
 ├── crossdomain.xml
 ├── favicon.ico
@@ -62,10 +86,6 @@ and custom code can all be included here. We have created an initial JS - custom
 
 We use [Bower](http://bower.io/) for external package management. [Install Bower](https://www.jetbrains.com/webstorm/help/using-bower-package-manager.html) and run `bower install` to get all the dependencies at once. The files in bower_components shall not be changed.
 
-### 404.html
-
-A helpful custom 404 to get you started.
-
 ### browserconfig.xml
 
 This file contains all settings regarding custom tiles for IE11.
@@ -90,11 +110,6 @@ modify the directory structure at all.
 
 If you are using Google Universal Analytics, make sure that you edit the
 corresponding snippet at the bottom to include your analytics ID.
-
-### humans.txt
-
-Edit this file to include the team that worked on your site/app, and the
-technology powering it.
 
 ### robots.txt
 

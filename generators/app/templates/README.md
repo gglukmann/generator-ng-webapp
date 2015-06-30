@@ -1,1 +1,1 @@
-# Net Group UX team front-end webapp template
+# [Net Group](http://netgroup.ee) UX team front-end webapp template
