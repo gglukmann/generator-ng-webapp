@@ -1,5 +1,15 @@
 module.exports = function(grunt) {
     grunt.initConfig({
+        // bower install
+        bower: {
+            options: {
+                copy: false
+            },
+            install: {
+                //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory
+            }
+        },
+
         // copies fonts and bootstrap scss
         copy: {
             main: {
@@ -145,12 +155,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-sakugawa');
     grunt.loadNpmTasks('dbushell-grunt-mustatic');
+    grunt.loadNpmTasks('grunt-bower-task');
 
     grunt.registerTask('default', ['init']);
     grunt.registerTask('scss', ['sass:dev', 'sakugawa', 'sass:dist']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('serve', ['connect', 'watch']);
-    grunt.registerTask('init', ['copy', 'scss', 'js', 'mustatic', 'serve']);
-    grunt.registerTask('update', ['copy', 'scss', 'js', 'mustatic']);
+    grunt.registerTask('init', ['bower:install', 'copy', 'scss', 'js', 'mustatic', 'serve']);
+    grunt.registerTask('update', ['bower:install', 'copy', 'scss', 'js', 'mustatic']);
 
 };

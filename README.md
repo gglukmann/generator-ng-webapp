@@ -15,6 +15,18 @@ gem install sass
 ```
 - Install [git](https://git-scm.com/)
 - Make sure ruby, node and git are in your environment variables PATH
+- Close cmd and reopen it
+- Check if everything is installed correctly in Ruby cmd
+```bash
+ruby -v
+node -v
+git
+```
+- Make directory to store your project
+```bash
+mkdir /path/to/your-project-dir
+cd /path/to/your-project-dir
+```
 
 ### Yeoman Generators
 
