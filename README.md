@@ -5,6 +5,17 @@
 
 ## Getting Started
 
+To get you started on Windows:
+
+- Install [Ruby](http://rubyinstaller.org/)
+- Install [NodeJS](https://nodejs.org/)
+- Open Ruby cmd and install sass with gem
+```bash
+gem install sass
+```
+- Install [git](https://git-scm.com/)
+- Make sure ruby, node and git are in your environment variables PATH
+
 ### Yeoman Generators
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
@@ -14,7 +25,7 @@ Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](
 To install generator-ng-webapp from npm, run:
 
 ```bash
-npm install -g yo generator-ng-webapp
+npm install -g yo bower grunt-cli generator-ng-webapp
 ```
 
 Finally, initiate the generator:
