@@ -35,6 +35,11 @@ usually involves the following:
 grunt init
 ```
 
+## Integrate compiled webapp to .net workflow
+
+- Copy html as it suites you
+- Copy assets catalogue to  the root of your project
+- Amend js and css paths in head and before body end. e.g. /yourproject/assets/main.min.css etc
 
 ## Basic structure
 
