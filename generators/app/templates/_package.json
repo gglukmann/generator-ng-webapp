@@ -2,15 +2,32 @@
     "name": "<%= name %>",
     "version": "0.0.1",
     "devDependencies": {
-        "grunt": "*",
-        "grunt-contrib-concat": "*",
-        "grunt-contrib-copy": "*",
-        "grunt-contrib-sass": "*",
-        "grunt-contrib-uglify": "*",
-        "grunt-contrib-watch": "*",
-        "grunt-contrib-connect": "*",
-        "grunt-sakugawa": "*",
-        "dbushell-grunt-mustatic": "*",
-        "grunt-bower-task": "*"
-    }
+    "arialinter": "^0.3.1",
+    "autoprefixer": "^6.3.7",
+    "browser-sync": "^2.13.0",
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-if": "^2.0.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-smushit": "^1.2.0",
+    "gulp-svgstore": "^6.0.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-useref": "^3.1.0",
+    "run-sequence": "^1.2.2"
+  },
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap-sass": "^3.3.6",
+    "cssuseragent": "git+https://github.com/mckamey/cssuseragent.git",
+    "font-awesome": "^4.6.3",
+    "foundation": "^4.2.1-1",
+    "jquery": "^2.2.4",
+    "lazysizes": "^2.0.0",
+    "picturefill": "^3.0.2",
+    "svg4everybody": "^2.1.0"
+  }
 }

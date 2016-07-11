@@ -49,9 +49,11 @@ module.exports = yeoman.generators.Base.extend({
 
     writing: {
         app: function () {
-            this.copy('custom.css', 'app/assets/css/custom.css');
-            this.copy('custom.js', 'app/assets/js/custom.js');
+            // Vana versioon, äkki läheb ikka vaja?
+            //this.copy('custom.css', 'app/assets/css/custom.css');
+            //this.copy('custom.js', 'app/assets/js/custom.js');
 
+            //See osa sobib nagu oli
             this.copy('browserconfig.xml', 'app/browserconfig.xml');
             this.copy('crossdomain.xml', 'app/crossdomain.xml');
             this.copy('robots.txt', 'app/robots.txt');
@@ -64,23 +66,26 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         projectfiles: function () {
-            this.template('includes/base.html', 'includes/base.html', { title: this.name });
-            this.copy('includes/pages/index.html', 'includes/pages/index.html');
-            this.template('includes/partials/_header.html', 'includes/partials/core/_header.html', { title: this.name });
+            //Includes folder
+            this.template('includes/views/index.html', 'app/includes/views/index.html');
+            this.template('includes/partials/_header.html', 'app/includes/partials/_header.html', { title: this.name });
+            this.template('index.html', 'app/index.html', { title: this.name });
 
+            //Some special root files
             this.copy('.gitignore-example', '.gitignore');
             this.copy('editorconfig', '.editorconfig');
             this.copy('jshintrc', '.jshintrc');
             this.template('_package.json', 'package.json', { name: this.appName });
-            this.template('_bower.json', 'bower.json', { name: this.appName });
-            this.copy('_gruntfile.js', 'gruntfile.js');
+            this.copy('_gulpfile.js', 'gulpfile.js');
 
+            //Styles
             this.copy('_variables.scss', 'assets/sass/_variables.scss');
             this.copy('_flexbox.scss', 'assets/sass/_flexbox.scss');
             this.copy('_style.scss', 'assets/sass/_style.scss');
             this.copy('app.scss', 'assets/sass/app.scss');
 
-            this.copy('app.js', 'assets/js/app.js');
+
+            this.copy('app.js', 'app/assets/js/app.js');
 
             this.template('doc/TOC.md', 'doc/TOC.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
             this.template('doc/css.md', 'doc/css.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
@@ -100,6 +105,6 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        this.log(chalk.green('Much wow! Everything installed successfully! Next run "grunt init" to get you started.'));
+        this.log(chalk.green('Much wow! Everything installed successfully! // --> CHECK --> // Next run "grunt init" to get you started.'));
     }
 });
