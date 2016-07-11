@@ -5,6 +5,7 @@
     "arialinter": "^0.3.1",
     "autoprefixer": "^6.3.7",
     "browser-sync": "^2.13.0",
+    "cssnano": "^3.7.1",
     "del": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-if": "^2.0.1",

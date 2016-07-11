@@ -98,6 +98,9 @@ function fonts(dest) {
 // Development Tasks ( .tmp directory )
 //
 
+//* Project initialization
+
+gulp.task('init', ['icons', 'images', 'fonts', 'combine', 'includes']);
 
 //* Watch SASS, JS, HTML -- I keep an eye on everything
 gulp.task('watch', ['server', 'icons', 'images', 'fonts'], function() {

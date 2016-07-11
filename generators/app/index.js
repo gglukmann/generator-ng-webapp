@@ -79,10 +79,9 @@ module.exports = yeoman.generators.Base.extend({
             this.copy('_gulpfile.js', 'gulpfile.js');
 
             //Styles
-            this.copy('_variables.scss', 'assets/sass/_variables.scss');
-            this.copy('_flexbox.scss', 'assets/sass/_flexbox.scss');
-            this.copy('_style.scss', 'assets/sass/_style.scss');
-            this.copy('app.scss', 'assets/sass/app.scss');
+            this.copy('_variables.scss', 'app/assets/sass/_variables.scss');
+            this.copy('_style.scss', 'app/assets/sass/_style.scss');
+            this.copy('app.scss', 'app/assets/sass/app.scss');
 
 
             this.copy('app.js', 'app/assets/js/app.js');
@@ -95,7 +94,9 @@ module.exports = yeoman.generators.Base.extend({
             this.template('doc/misc.md', 'doc/misc.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
             this.template('doc/usage.md', 'doc/usage.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
 
-            this.mkdir('includes/partials/components');
+            this.mkdir('app/assets/images');
+            this.mkdir('app/assets/svg');
+            this.mkdir('app/assets/images');
         }
 
     },
