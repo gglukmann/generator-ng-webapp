@@ -100,10 +100,10 @@ function fonts(dest) {
 
 //* Project initialization
 
-gulp.task('init', ['icons', 'images', 'fonts', 'combine', 'includes']);
+gulp.task('init', ['icons', 'images', 'fonts', 'combine', 'includes', 'sass']);
 
 //* Watch SASS, JS, HTML -- I keep an eye on everything
-gulp.task('watch', ['server', 'icons', 'images', 'fonts'], function() {
+gulp.task('watch', ['server'], function() {
   gulp.watch('app/includes/**/*', ['includes']);
   gulp.watch('app/assets/sass/**/*.scss', ['sass']);
   gulp.watch('app/assets/js/**/*.js', ['jscs','combine']);

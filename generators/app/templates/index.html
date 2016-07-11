@@ -2,19 +2,45 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title><%= title %></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="keywords" content="Elion, e-pood, pood.elion.ee,  S&#252;learvutid, Tahvelarvutid, Monitorid, Printerid, Tindid, Toonerid, Kotid, Tarkvara, Telerid, M&#228;ngud, K&#245;rvaklapid,  K&#245;larid, Digiboksid, Nuti TV, Peegelkaamerad, Fotoaparaadid, Objektiivid, V&#228;lgud, Mobiiltelefonid, Telefonid, VoIP, Nutitelefonid, J&#228;relmaks, Liising, Telia, pood.telia.ee" />
+    <meta name="robots" content="index,follow">
+
+    <link rel="shortcut icon" href="apple-touch-icon.png" sizes="any"/>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-  
+
+    <meta name="theme-color" content="#990ae3">
+
+    <meta name="msapplication-TileColor" content="#000">
+    <meta name="msapplication-TileImage" content="apple-touch-icon.png">
+
+    <style>
+      nav,
+      section,
+      footer {
+        display: none;
+      }
+    </style>
+    <script>
+    // https://github.com/filamentgroup/loadCSS
+    !function(e){"use strict"
+    var n=function(n,t,o){function i(e){return f.body?e():void setTimeout(function(){i(e)})}var d,r,a,l,f=e.document,s=f.createElement("link"),u=o||"all"
+    return t?d=t:(r=(f.body||f.getElementsByTagName("head")[0]).childNodes,d=r[r.length-1]),a=f.styleSheets,s.rel="stylesheet",s.href=n,s.media="only x",i(function(){d.parentNode.insertBefore(s,t?d:d.nextSibling)}),l=function(e){for(var n=s.href,t=a.length;t--;)if(a[t].href===n)return e()
+    setTimeout(function(){l(e)})},s.addEventListener&&s.addEventListener("load",function(){this.media=u}),s.onloadcssdefined=l,l(function(){s.media!==u&&(s.media=u)}),s}
+    "undefined"!=typeof exports?exports.loadCSS=n:e.loadCSS=n}("undefined"!=typeof global?global:this);
+    loadCSS("assets/css/styles.min.css");
+    </script>
+    <noscript>
+      <link rel="stylesheet" href="assets/css/styles.min.css">
+    </noscript>
   </head>
   <body ng-app="app">
     <main ui-view></main>
-    <!--build:js assets/js/main.min.js -->
+    <!--build:js assets/js/main.min.js async-->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/angular/angular.min.js"></script>
     <script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
