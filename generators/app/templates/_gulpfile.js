@@ -100,10 +100,12 @@ function fonts(dest) {
 
 //* Project initialization
 
-gulp.task('init', ['icons', 'images', 'fonts', 'combine', 'includes', 'sass']);
+gulp.task('init', ['icons', 'images', 'fonts', 'combine', 'includes', 'sass'], function() {
+  rq('serve');
+});
 
 //* Watch SASS, JS, HTML -- I keep an eye on everything
-gulp.task('watch', ['server'], function() {
+gulp.task('serve', ['server'], function() {
   gulp.watch('app/includes/**/*', ['includes']);
   gulp.watch('app/assets/sass/**/*.scss', ['sass']);
   gulp.watch('app/assets/js/**/*.js', ['jscs','combine']);
@@ -165,11 +167,9 @@ gulp.task('fonts', function() {
 
 
 //* Build and serve
-gulp.task('dist:build', ['dist:server', 'dist:sass', 'dist:combine', 'dist:compress', 'dist:icons', 'dist:includes', 'dist:fonts'], function() {
-  return browserSync.reload();
-});
+gulp.task('dist:build', ['dist:sass', 'dist:combine', 'dist:compress', 'dist:icons', 'dist:includes', 'dist:fonts']);
 
-//1. WebServer -- Collective task
+//1. WebServer
 gulp.task('dist:server', function() {
   webServer('dist');
 });

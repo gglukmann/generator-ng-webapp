@@ -1,0 +1,16 @@
+{
+  "requireSpaceBeforeKeywords": [
+    "else", "while", "catch"
+  ],
+  "disallowTrailingComma": true,
+  "requireSpaceAfterBinaryOperators": [
+    "?", ":", "+", "-"
+  ],
+  "requireSpaceBeforeBinaryOperators": [
+    "?", ":", "+", "-"
+  ],
+  "requireSpaceAfterKeywords": [
+    "if", "else", "for"
+  ],
+  "requireSpaceBeforeBlockStatements": true
+}
