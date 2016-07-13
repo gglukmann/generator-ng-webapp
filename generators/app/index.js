@@ -33,11 +33,6 @@ module.exports = yeoman.generators.Base.extend({
             name    : 'urlEnd',
             message : 'Write URL ending http://ux.netgroupdigital.com/...',
             default : this.appname.replace(/ /g,"")
-        },{
-            type    : 'confirm',
-            name    : 'frontEndFramework',
-            message : 'Choose a front-end framework. Y for bootstrap, N for foundation',
-            default : true
         }];
 
         this.prompt(prompts, function (answers) {
@@ -46,7 +41,7 @@ module.exports = yeoman.generators.Base.extend({
             this.appName = answers.appName.replace(/ /g,"");
             this.addLink = answers.addLink;
             this.urlEnd = answers.urlEnd;
-            this.frontEndFramework = answers.frontEndFramework;
+            this.frontEndFramework = true;
             this.log("This should be the state of frontendframework: " + chalk.magenta(this.frontEndFramework));
             if ( this.frontEndFramework == true ) {
               this.javascript =
@@ -97,7 +92,6 @@ module.exports = yeoman.generators.Base.extend({
             this.copy('crossdomain.xml', 'app/crossdomain.xml');
             this.copy('robots.txt', 'app/robots.txt');
             this.copy('README.md', 'README.md');
-            this.copy('.jscsrc', '.jscsrc');
 
             this.copy('apple-touch-icon.png', 'app/apple-touch-icon.png');
             this.copy('favicon.ico', 'app/favicon.ico');
@@ -114,6 +108,7 @@ module.exports = yeoman.generators.Base.extend({
             this.copy('.gitignore-example', '.gitignore');
             this.copy('editorconfig', '.editorconfig');
             this.copy('jshintrc', '.jshintrc');
+            this.copy('.jscsrc', '.jscsrc');
             this.template('_package.json', 'package.json', { name: this.appName });
             this.copy('_gulpfile.js', 'gulpfile.js');
 
@@ -127,6 +122,7 @@ module.exports = yeoman.generators.Base.extend({
             }
 
             this.copy('app.js', 'app/assets/js/app.js');
+            this.copy('scripts.js', 'app/assets/js/scripts.js')
 
 
 
