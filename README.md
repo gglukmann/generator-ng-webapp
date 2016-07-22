@@ -7,20 +7,13 @@
 
 To get you started on Windows:
 
-- Install [Ruby](http://rubyinstaller.org/)
 - Install [NodeJS](https://nodejs.org/)
-- Open Ruby cmd and install sass with gem
-```bash
-gem install sass
-```
 - Install [git](https://git-scm.com/)
-- Make sure ruby, node and git are in your environment variables PATH
-- Close cmd and reopen it
-- Check if everything is installed correctly in Ruby cmd
+- Make sure node and git are in your environment variables PATH
+- Check if everything is installed correctly in cmd or git bash
 ```bash
-ruby -v
 node -v
-git
+git --version
 ```
 - Make directory to store your project
 ```bash
@@ -37,7 +30,7 @@ Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](
 To install generator-ng-webapp from npm, run:
 
 ```bash
-npm install -g yo bower grunt-cli generator-ng-webapp
+npm install -g yo gulp gulp-cli generator-ng-webapp
 ```
 
 Finally, initiate the generator:
@@ -46,18 +39,12 @@ Finally, initiate the generator:
 yo ng-webapp
 ```
 
-### Getting To Know Yeoman
-
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
-
 ### Starting project
 
 Run grunt on terminal
 
 ```bash
-grunt init
+gulp init
 ```
 
 And you should have working project up and running on port:9001
@@ -65,14 +52,13 @@ And you should have working project up and running on port:9001
 
 ## Features
 
-> - Grunt & Bower
+> - Angular 1
+> - Gulp
 > - Bootstrap SASS
-> - Modernizr
 > - FontAwesome
 > - Automagically compile Sass and JS
-> - Built-in preview server with LiveReload
+> - Built-in preview server with BrowserSync
 > - JSON support
-> - different files for CSS media queries
 
 ## License
 
