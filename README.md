@@ -10,7 +10,7 @@ To get you started on Windows:
 - Install [NodeJS](https://nodejs.org/)
 - Install [git](https://git-scm.com/)
 - Make sure node and git are in your environment variables PATH
-- Check if everything is installed correctly in cmd or git bash
+- Check if everything is installed correctly in terminal
 ```bash
 node -v
 git --version
@@ -20,21 +20,11 @@ git --version
 mkdir /path/to/your-project-dir
 cd /path/to/your-project-dir
 ```
-
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive.
-
-To install generator-ng-webapp from npm, run:
-
+- To install dependencies:
 ```bash
 npm install -g yo gulp gulp-cli generator-ng-webapp
 ```
-
-Finally, initiate the generator:
-
+- Finally, initiate the generator:
 ```bash
 yo ng-webapp
 ```
@@ -47,7 +37,7 @@ Run grunt on terminal
 gulp init
 ```
 
-And you should have working project up and running on port:9001
+And you should have working project up and running in browser
 
 
 ## Features
