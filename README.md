@@ -20,7 +20,7 @@ git --version
 mkdir /path/to/your-project-dir
 cd /path/to/your-project-dir
 ```
-- To install dependencies:
+- Install dependencies:
 ```bash
 npm install -g yo gulp gulp-cli generator-ng-webapp
 ```

@@ -16,7 +16,8 @@ describe('ng-template:app', function () {
   it('creates files', function () {
     assert.file([
       'package.json',
-      '.editorconfig'
+      '.editorconfig',
+      'gulpfile.js'
     ]);
   });
 });
