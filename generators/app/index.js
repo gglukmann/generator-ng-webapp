@@ -44,9 +44,6 @@ module.exports = yeoman.generators.Base.extend({
             this.log("This should be the state of frontendframework: " + chalk.magenta(this.frontEndFramework));
             done();
         }.bind(this));
-
-
-
     },
 
     writing: {
@@ -83,8 +80,6 @@ module.exports = yeoman.generators.Base.extend({
             this.copy('app.js', 'app/assets/js/app.js');
             this.copy('scripts.js', 'app/assets/js/scripts.js')
 
-
-
             this.template('doc/TOC.md', 'doc/TOC.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
             this.template('doc/css.md', 'doc/css.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
             this.template('doc/faq.md', 'doc/faq.md', { name: this.name, urlend: this.urlEnd, addLink: this.addLink });
@@ -95,9 +90,7 @@ module.exports = yeoman.generators.Base.extend({
 
             this.mkdir('app/assets/images');
             this.mkdir('app/assets/svg');
-            this.mkdir('app/assets/images');
         }
-
     },
 
     install: function () {
@@ -105,6 +98,6 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        this.log(chalk.green('Much wow! Everything installed successfully!  Next run "gulp init" to get you started.'));
+        this.log(chalk.green('Much wow! Everything installed successfully! Next run "gulp init" to get you started.'));
     }
 });

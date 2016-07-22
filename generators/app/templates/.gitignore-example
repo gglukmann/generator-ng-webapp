@@ -1,4 +1,6 @@
-/node_modules
+node_modules
 npm-debug.log
-/.sass-cache
+.sass-cache
 .DS_Store
+.tmp
+dist
