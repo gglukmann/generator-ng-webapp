@@ -1,7 +1,10 @@
 {
-    "name": "<%= name %>",
-    "version": "0.1.0",
-    "devDependencies": {
+  "name": "<%= name %>",
+  "version": "0.1.0",
+  "description": "This is my new awesome app",
+  "repository": "https://bitbucket.org/ngux/<%= name %>",
+  "license": "",
+  "devDependencies": {
     "arialinter": "^0.3.1",
     "autoprefixer": "^6.3.7",
     "browser-sync": "^2.13.0",

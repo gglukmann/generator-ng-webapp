@@ -15,11 +15,9 @@ var autoprefixer = require('autoprefixer');
 var rq = require('run-sequence');
 var del = require('del');
 
-
 //
 // Collective functions (destination as .tmp or dist)
 //
-
 
 //BrowserSync WebServer ( dest == files directory )
 function webServer(dest) {
@@ -93,13 +91,11 @@ function fonts(dest) {
   gulp.src('node_modules/bootstrap-sass/assets/fonts/bootstrap/*').pipe(gulp.dest(dest + '/assets/fonts/bootstrap'));
 }
 
-
 //
 // Development Tasks ( .tmp directory )
 //
 
 //* Project initialization
-
 gulp.task('init', ['icons', 'images', 'fonts', 'combine', 'includes', 'sass'], function() {
   rq('serve');
 });
@@ -164,7 +160,6 @@ gulp.task('fonts', function() {
 //
 // Dist Tasks ( dist directory )
 //
-
 
 //* Build and serve
 gulp.task('dist:build', ['dist:sass', 'dist:combine', 'dist:compress', 'dist:icons', 'dist:includes', 'dist:fonts']);
