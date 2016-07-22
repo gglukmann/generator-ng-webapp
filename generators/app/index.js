@@ -41,44 +41,7 @@ module.exports = yeoman.generators.Base.extend({
             this.appName = answers.appName.replace(/ /g,"");
             this.addLink = answers.addLink;
             this.urlEnd = answers.urlEnd;
-            this.frontEndFramework = true;
             this.log("This should be the state of frontendframework: " + chalk.magenta(this.frontEndFramework));
-            if ( this.frontEndFramework == true ) {
-              this.javascript =
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script> \n' +
-              '\t \t<script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>';
-            } else {
-              this.javascript =
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/vendor/custom.modernizr.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/vendor/zepto.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.alerts.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.clearing.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.cookie.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.dropdown.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.forms.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.interchange.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.joyride.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.magellan.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.orbit.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.placeholder.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.reveal.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.section.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.tooltips.js"></script> \n' +
-              '\t \t<script src="../node_modules/foundation/js/foundation/foundation.topbar.js"></script>';
-            }
-
             done();
         }.bind(this));
 
@@ -103,7 +66,7 @@ module.exports = yeoman.generators.Base.extend({
             this.template('includes/views/index.html', 'app/includes/views/index.html');
             this.template('includes/partials/_header.html', 'app/includes/partials/_header.html', { title: this.name });
 
-            this.template('index.html', 'app/index.html', { title: this.name, javascript: this.javascript });
+            this.template('index.html', 'app/index.html', { title: this.name });
 
             this.copy('.gitignore-example', '.gitignore');
             this.copy('editorconfig', '.editorconfig');
@@ -115,11 +78,7 @@ module.exports = yeoman.generators.Base.extend({
             this.copy('_variables.scss', 'app/assets/sass/_variables.scss');
             this.copy('_style.scss', 'app/assets/sass/_style.scss');
 
-            if (this.frontEndFramework == true) {
-              this.copy('_app_bootstrap.scss', 'app/assets/sass/app.scss');
-            } else {
-              this.copy('_app_foundation.scss', 'app/assets/sass/app.scss');
-            }
+            this.copy('_app_bootstrap.scss', 'app/assets/sass/app.scss');
 
             this.copy('app.js', 'app/assets/js/app.js');
             this.copy('scripts.js', 'app/assets/js/scripts.js')
