@@ -69,8 +69,9 @@ module.exports = yeoman.generators.Base.extend({
             this.copy('editorconfig', '.editorconfig');
             this.copy('jshintrc', '.jshintrc');
             this.copy('.jscsrc', '.jscsrc');
+            this.copy('.babelrc', '.babelrc');
             this.template('_package.json', 'package.json', { name: this.appName });
-            this.copy('_gulpfile.js', 'gulpfile.js');
+            this.copy('_gulpfile.babel.js', 'gulpfile.babel.js');
 
             this.copy('_variables.scss', 'app/assets/sass/_variables.scss');
             this.copy('_style.scss', 'app/assets/sass/_style.scss');
