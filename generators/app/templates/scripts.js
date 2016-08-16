@@ -25,5 +25,5 @@
 $(function () {
   setTimeout(function () {
     $('[data-toggle="tooltip"]').tooltip();
-  }, 1);
+  }, 100);
 });

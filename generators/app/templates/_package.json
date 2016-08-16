@@ -1,6 +1,9 @@
 {
     "name": "<%= name %>",
     "version": "0.1.0",
+    "description": "This is my new awesome app",
+    "repository": "https://bitbucket.org/ngux/<%= name %>",
+    "license": "",
     "devDependencies": {
       "autoprefixer": "^6.3.7",
       "babel-core": "^6.13.2",
