@@ -17,7 +17,7 @@ describe('ng-template:app', function () {
     assert.file([
       'package.json',
       '.editorconfig',
-      'gulpfile.js'
+      'gulpfile.babel.js'
     ]);
   });
 });
